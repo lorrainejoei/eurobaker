@@ -1,4 +1,24 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+    
+    if(!function_exists('_user_css')){
+        function _user_css($user_css){
+            if(file_exists('assets/css/users_css/'.$user_css.'.css')){
+                return 'users_css/'.$user_css.'.css';
+            }
+            return null;
+        }
+    }
+
+    if(!function_exists('_user_script')){
+        function _user_script($user_js){
+            if(file_exists('assets/script/users_script/'.$user_js.'.js')){
+                return 'users_script/'.$user_js.'.js';
+            }
+            return null;
+        }
+    }
+
     function ajax_response($message, $type){
         $data = array(
             'message' => $message,
@@ -26,7 +46,7 @@
         $ci = & get_instance();
         $ci->session->set_flashdata("flash_data", array( "err"=>$err, "message" => $msg));
     }
-    
+
     function get_logged_user($typ = "array"){
         $ci = & get_instance();
         if($typ== "array"){
@@ -70,5 +90,5 @@
         $res=  $ci->MY_Model->batch_insert($tbl, $set);
         return $res;
     }
- 
+
 ?>

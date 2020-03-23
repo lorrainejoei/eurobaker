@@ -25,6 +25,11 @@
     <!-- You can change the theme colors from here -->
     <link href="<?= base_url("assets/css/color.css")?>" rel="stylesheet">
     <link href="<?= base_url("assets/css/my_style.css")?>" rel="stylesheet">
+    <?php
+    echo "string";
+    echo $this->current_class.'1';
+      echo (_user_css($this->current_class))?"\t\t<link rel='stylesheet' href='".base_url('assets/css/'._user_css($this->current_class))."'>\n":'';
+    ?>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
